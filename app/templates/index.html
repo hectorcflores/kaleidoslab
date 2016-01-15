@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <title>Kaleidos</title>
+  </head>
+
+	<body>
+      <h1>Kaleidos</h1>
+      <p>Escoge las mejores películas de la CINETECA</p>
+
+    <div  class="film-table">
+      <table>
+        <tr>
+          <th>Calificación</th>
+          <th>Título</th>
+          <th>Director</th>
+          <th>País</th>
+          <th>Año</th>
+          <th>Duración</th>
+        </tr>
+        {% for rating, title, director, country, year, minutes in films_table%}          
+        <tr>
+          <td>{{ rating|e }}</td>
+          <td>{{ title|e }}</td>
+          <td>{{ director|e }}</td>
+          <td>{{ country|e }}</td>
+          <td>{{ year|e }}</td>
+          <td>{{ minutes|e }}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+	</body>
+</html>
